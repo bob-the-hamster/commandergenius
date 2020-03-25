@@ -365,7 +365,9 @@ class Settings
 			return;
 			
 		} catch( FileNotFoundException e ) {
+			DeleteFilesOnUpgrade(p);
 		} catch( SecurityException e ) {
+			DeleteFilesOnUpgrade(p);
 		} catch ( IOException e ) {
 			DeleteFilesOnUpgrade(p);
 			if( Globals.ResetSdlConfigForThisVersion )
