@@ -1382,7 +1382,14 @@ abstract class DimSystemStatusBar
 	            hiddenStatusCode = android.view.View.SYSTEM_UI_FLAG_LOW_PROFILE;
 	         }
 	         */
-	         view.setSystemUiVisibility(android.view.View.STATUS_BAR_HIDDEN);
+	         // ^ the comment above might have made sense on targetSdkVersion 15 but we are on targetSdkVersion 29 now,
+	         // and I fear it has become nonsense. -- James Paige 2020-10-05
+	         // These flags enable fullscreen mode (at least until a future sdk changes everything again!)
+	         int visFlags = 0;
+	         visFlags |= android.view.View.SYSTEM_UI_FLAG_IMMERSIVE;
+	         visFlags |= android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
+	         visFlags |= android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+	         view.setSystemUiVisibility(visFlags);
 	   }
 	}
 	private static class DimSystemStatusBarDummy extends DimSystemStatusBar
