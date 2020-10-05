@@ -689,7 +689,7 @@ public class MainActivity extends Activity
 		{
 			if( mGLView.nativeKey( keyCode, 0, -1 ) == 0 )
 				return super.onKeyUp(keyCode, event);
-			if( keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_MENU )
+			if( keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_ESCAPE )
 			{
 				DimSystemStatusBar.get().dim(_videoLayout);
 				DimSystemStatusBar.get().dim(mGLView);
